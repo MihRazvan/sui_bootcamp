@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useSignAndExecuteTransaction, useSuiClient, useCurrentAccount } from '@mysten/dapp-kit'
-import { Transaction } from '@mysten/sui.js/transactions'
+import { Transaction } from '@mysten/sui/transactions'
 import { GUESTBOOK_PACKAGE_ID, GUESTBOOK_OBJECT_ID, FUNCTIONS } from '../utils/constants'
 
 export interface Message {
