@@ -3,29 +3,21 @@ import { useCurrentAccount } from '@mysten/dapp-kit'
 import { Send, MessageSquare, Zap, Coins } from 'lucide-react'
 import { MAX_MESSAGE_LENGTH } from '../utils/constants'
 import { useSponsoredGuestbook } from '../hooks/useSponsoredGuestbook'
-import { useGuestbook } from '../hooks/useGuestbook'
 
 export function SponsoredGuestbookForm() {
     const [message, setMessage] = useState('')
     const [useSponsored, setUseSponsored] = useState(true)
     const currentAccount = useCurrentAccount()
 
-    // Both hooks for comparison
-    const { postSponsoredMessage, isLoading: sponsoredLoading, isEnokiEnabled } = useSponsoredGuestbook()
-    const { postMessage: postRegularMessage, isLoading: regularLoading } = useGuestbook()
-
-    const isLoading = sponsoredLoading || regularLoading
+    // Use the sponsored hook
+    const { postSponsoredMessage, isLoading, isEnokiEnabled, inspectContract } = useSponsoredGuestbook()
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!message.trim() || !currentAccount) return
 
         try {
-            if (useSponsored && isEnokiEnabled) {
-                await postSponsoredMessage(message.trim())
-            } else {
-                await postRegularMessage(message.trim())
-            }
+            await postSponsoredMessage(message.trim())
             setMessage('') // Clear form on success
         } catch (error) {
             console.error('Error posting message:', error)

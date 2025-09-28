@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mysten/dapp-kit": "^0.14.15",
+    "@mysten/enoki": "^0.12.1",
     "@mysten/sui": "^1.38.0",
     "@mysten/wallet-adapter-sui-wallet": "^0.3.0",
     "@mysten/wallet-adapter-wallet-standard": "^0.8.0",

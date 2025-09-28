@@ -1,6 +1,6 @@
 import { Book, Github, ExternalLink } from 'lucide-react'
 import { WalletConnection } from './components/WalletConnection'
-import { GuestbookForm } from './components/GuestbookForm'
+import { SponsoredGuestbookForm } from './components/SponsoredGuestbookForm'
 import { MessageList } from './components/MessageList'
 import { GUESTBOOK_PACKAGE_ID } from './utils/constants'
 
@@ -40,7 +40,7 @@ function App() {
           </div>
 
           {/* Form Section */}
-          <GuestbookForm />
+          <SponsoredGuestbookForm />
 
           {/* Messages Section */}
           <MessageList />

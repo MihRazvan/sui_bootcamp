@@ -5,6 +5,7 @@ import { getFullnodeUrl } from '@mysten/sui/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import App from './App.tsx'
 import './index.css'
+import { EnokiProvider } from './providers/EnokiProvider.tsx'
 
 // Import CSS for dapp-kit components
 import '@mysten/dapp-kit/dist/index.css'
@@ -28,9 +29,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <WalletProvider
           autoConnect
           storageKey="sui-dapp-kit:wallet-connection-info"
-          theme="light"
         >
-          <App />
+          <EnokiProvider>
+            <App />
+          </EnokiProvider>
         </WalletProvider>
       </SuiClientProvider>
     </QueryClientProvider>
